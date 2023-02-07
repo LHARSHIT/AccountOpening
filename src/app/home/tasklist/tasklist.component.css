@@ -1,0 +1,14 @@
+th{
+
+  background-color: white;
+
+  color:black;
+  font-size: smaller; 
+}
+
+td{
+  font-size: x-small;
+}
+.past-due {
+  color: red;
+}

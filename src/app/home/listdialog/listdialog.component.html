@@ -1,0 +1,21 @@
+<h4>Task Assignment</h4>
+<hr>
+
+<div class="row">
+  <div class="col-4">
+    <label > Select User</label>
+  </div>
+  <div class="col-6">
+   <select [(ngModel)]="selectedUserEmail" (change)="onUserSelectionChange($event)" class=" col-5 form-control form-control-sm">
+    <option>Select User</option>
+    <option *ngFor="let user of users"  [value]="user.email">{{user.firstName}} {{user.lastName}} ({{user.email}})</option>
+    
+   </select>
+  </div>
+  </div>
+   <br>
+  <div class="button-row">
+    <button mat-raised-button (click)="assignTask()" routerLink="/tasklist" >Assign</button>&nbsp;
+    <button mat-raised-button (click)="closeDialog()">Cancel</button>
+  </div>
+

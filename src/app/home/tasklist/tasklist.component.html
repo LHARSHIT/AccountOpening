@@ -1,0 +1,85 @@
+<div class="mat-elevation-z2" style="margin-top: 20px;">
+  <span style="margin-left: 45%;">Task List</span>
+  <hr>
+      <div style="width: 95%;margin-left: 25px;margin-bottom: 30px;" class="mat-elevation-z2">
+        <mat-tab-group (selectedTabChange)=getTasks()>
+          <mat-tab label="Unassinged" class="text-white"> 
+        <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="dataSource" *ngIf="this.isPresent === true"> 
+        <ng-container matColumnDef="id"> 
+             <th mat-header-cell *matHeaderCellDef> Id </th>
+       <td mat-cell *matCellDef="let task" routerLink="/taskdetails/{{task.id}}"><u>{{ task.id}}</u> 
+     </td>
+     </ng-container>
+     
+      <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Task Name </th>
+          <td mat-cell *matCellDef="let task"> {{ task.name}} </td> 
+      </ng-container>
+     
+          <ng-container matColumnDef="created">
+           <th mat-header-cell *matHeaderCellDef> Created </th>
+           <td mat-cell *matCellDef="let task"> {{ task.created | date:'medium'}} </td>
+          </ng-container>
+     
+          <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef> Due Date </th>
+            <td mat-cell *matCellDef="let task" > {{ task.due | date:'medium'}} </td>
+           </ng-container>
+
+         <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Actions </th>
+          <td mat-cell *matCellDef="let task"> <mat-icon style="color:blue;" (click)="openDialog(task.id)">assignment</mat-icon> </td> 
+          </ng-container>
+         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+     </table>
+     
+         <mat-paginator [pageSizeOptions]="[5, 10, 20]" 
+          showFirstLastButtons
+          aria-label="Select page of Tasks"
+          *ngIf="this.isPresent === true"> 
+          </mat-paginator>  
+       </div> 
+      </mat-tab>
+
+        <mat-tab  label="Assinged" class="text-white">
+          <div class="mat-elevation-z8">
+          <table mat-table [dataSource]="assignedDataSource" *ngIf="this.isPresent === true"> 
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let task" routerLink="/taskdetails/{{task.id}}"><u>{{ task.id}}</u> 
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Task Name </th>
+                <td mat-cell *matCellDef="let task"> {{ task.name}} </td> 
+            </ng-container>
+            <ng-container matColumnDef="created">
+                <th mat-header-cell *matHeaderCellDef> Created </th>
+                <td mat-cell *matCellDef="let task"> {{ task.created | date:'medium'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="assigned">
+                <th mat-header-cell *matHeaderCellDef> Assigned </th>
+                <td mat-cell *matCellDef="let task"> {{ task.assignee}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="assignedDisplayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: assignedDisplayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" 
+          showFirstLastButtons
+          aria-label="Select page of Assigned Tasks"
+          *ngIf="this.isPresent === true">
+        </mat-paginator>  
+      </div>
+        </mat-tab>
+
+        <mat-tab  label="Completed" class="text-white"> 
+        </mat-tab>
+        </mat-tab-group>
+        <hr>
+       </div>
+       <br>
+  </div>
+     
+    

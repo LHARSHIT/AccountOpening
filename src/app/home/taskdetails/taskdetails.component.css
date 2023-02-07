@@ -1,0 +1,8 @@
+.content{
+    display: flex;
+    justify-content:flex-end;
+}
+#myTextArea {
+    width: 250px;
+    height: 70px;
+  }

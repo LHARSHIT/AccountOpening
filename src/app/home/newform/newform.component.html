@@ -1,0 +1,63 @@
+
+<form>
+    <div>    
+<hr style="width:100%;"><br>
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+<div class="mat-elevation-z4" style="width: 50%; margin-left: 25%;"> 
+    <br>
+    <div style="text-align:center;">
+    <label > New Account Opening Request </label></div><br>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray;margin-top: 0px;">
+<div class="row" style="margin-left: 10%;">
+    <div class="col-2"><label for="name" >Name:</label></div>
+    <div class="col-8">
+        <input  class="form-control" #id="ngModel" name="name" cam-variable-type="String" cam-variable-name="name" type="text" required [(ngModel)]= "account.name">
+        <div  *ngIf="id.invalid && id.touched" class="alert alert-danger">Sorry Name must be Entered</div>
+    </div>
+</div>
+<br>
+<div class="row" style="margin-left: 10%;">
+    <div class="col-2"><label for="address">Address:</label></div>
+    <div class="col-8">
+      <input class="form-control" #ab="ngModel" name="address" cam-variable-type="String" cam-variable-name="address" type="text" required [(ngModel)]= "account.address">
+      <div class="from-group" *ngIf="ab.invalid && ab.touched" class="alert alert-danger">Sorry Address must be Entered</div>
+    </div>
+</div>
+<br>
+<div class="row" style="margin-left: 10%;">
+    <div class="col-2"><label for="age">Age:</label></div>
+    <div class="col-8">
+    <input class="form-control" #bc="ngModel" name="age" cam-variable-type="String" cam-variable-name="age" type="number" required [(ngModel)]= "account.age">
+    <div class="from-group" *ngIf="bc.invalid && bc.touched" class="alert alert-danger">Sorry age must be Entered</div>
+    </div>
+</div>
+<br>
+<div class="row" style="margin-left: 10%;">
+    <div class="col-2"><label for="email">Email:</label></div>
+    <div class="col-8">
+    <input class="form-control" #cd="ngModel" name="email" cam-variable-type="String" cam-variable-name="email" type="text" required [(ngModel)]= "account.email">
+    <div class="from-group" *ngIf="cd.invalid && cd.touched" class="alert alert-danger">Sorry Email must be Entered</div>
+    </div>
+</div>
+<br>
+<div class="row" style="margin-left: 10%;">
+    <div class="col-2"><label for="salary">Salary:</label></div>
+    <div class="col-8">
+    <input class="form-control " #de="ngModel" name="salary" cam-variable-type="String" cam-variable-name="salary" type="text" required [(ngModel)]= "account.salary">
+    <div class="from-group" *ngIf="de.invalid && de.touched" class="alert alert-danger">Sorry Salary must be Entered</div>
+    </div>
+</div>
+<p></p>
+<div style="text-align:center;">
+<div>
+    <button (click)="addAccount()" class="btn btn-primary btn-sm" type="submit" >Submit</button>&nbsp;
+    <button class="btn btn-warning btn-sm" type="reset">Cancel</button>
+  </div></div>
+  <br>
+</div>
+
+
+</div>
+</form>
+
+ 

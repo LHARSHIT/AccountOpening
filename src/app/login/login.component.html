@@ -1,0 +1,52 @@
+<!-- login.component.html -->
+<div
+  class="mat-elevation-z2"
+  style="width: 50%; margin-left: 25%; margin-top: 15%"
+>
+  <div style="text-align: center">
+  <div class="title">
+    <label><b>Login</b></label>
+  </div>
+    <hr
+      style="
+        height: 2px;
+        border-width: 0;
+        color: gray;
+        background-color: gray;
+        margin-top: 0px;
+      "
+    />
+    <div class="row" style="margin-left: 10%">
+      <div class="col-4"><label for="name">User Name:</label></div>
+      <div class="col-6">
+        <input
+          matInput
+          type="text"
+          placeholder="Username"
+          [(ngModel)]="username"
+          name="username"
+        />
+      </div>
+      &nbsp;<br /><br />
+      <div class="col-4"><label for="name">Password:</label></div>
+      <div class="col-6">
+        <input
+          matInput
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          name="password"
+        />
+      </div>
+      <div>
+        <br/>
+        <button class="btn btn-primary btn-sm login" (click)="login()" routerLink="/work-list">Login</button>&nbsp;
+        <button class="btn btn-warning btn-sm login" (click)="reset()" type="reset">
+          Cancel
+        </button>
+        <br/>
+        <br/>
+      </div>
+    </div>
+  </div>
+</div>

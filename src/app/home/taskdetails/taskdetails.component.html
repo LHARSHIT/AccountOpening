@@ -1,0 +1,118 @@
+
+<form #frm="ngForm">
+    <div>
+
+    <div style="margin-left: 40px;">
+      <hr>
+       
+        <div style="text-align:center">
+        <span>Task Details</span></div>
+        <hr style="height:2px;border-width:0;color:grey;background-color:grey;margin-top:0px;">
+         <br>
+         <div class="row" *ngIf="tasks.assignee==null">
+          <div class="content">
+            <button class="btn btn-primary btn-sm" (click)="openDialog(tasks.id)">Assign</button>&nbsp;
+          </div>
+     </div>
+
+        <div class="row" *ngIf="tasks.assignee">
+          <div class="content">
+            <button class="btn btn-primary btn-sm" (click)="openTaskDialog(tasks.id, tasks.name, 'Approve')">Approve</button>&nbsp;
+            <!-- <button class="btn btn-primary btn-sm" (click)="approveTask(tasks.id,tasks.name)" >Approve</button>&nbsp; -->
+            <button class="btn btn-primary btn-sm" >On-Hold</button>&nbsp;
+            <button class="btn btn-primary btn-sm" (click)="openTaskDialog(tasks.id, tasks.name, 'Reject')">Reject</button>&nbsp;
+            <!-- <button class="btn btn-primary btn-sm" (click)="rejectTask(tasks.id,tasks.name)" >Reject</button>&nbsp; -->
+            <button class="btn btn-primary btn-sm" >Complete</button>&nbsp;
+          </div>
+     </div>
+
+        <hr>
+        <div >
+          
+          <div class="row" *ngIf="tasks.assignee">
+            <div class="col-2"><span>Assignee:</span></div>
+            <div class="col-6"><span>{{ tasks.assignee }}</span></div>
+            </div>
+          <div class="row">
+            <div class="col-2"><span>Id:</span></div>
+            <div class="col-6"><span>{{ tasks.id }}</span></div>
+            </div>
+            <div class="row">
+              <div class="col-2"><span>Task Name:</span></div>
+              <div class="col-6"><span>{{ tasks.name}}</span></div>
+              </div>
+              <div class="row">
+                <div class="col-2"><span>Created on:</span></div>
+                <div class="col-6"><span>{{ tasks.created | date:'medium'}}</span></div>
+                </div>
+          
+        </div>
+        
+        <hr>
+        <h3 class="sub" style="text-align:center">Customer Details</h3>
+       <hr>
+        <div>
+        <div class="row">
+        <div class="col-2"><span>Name: </span></div>
+        <div class="col-6"><span>{{ task.name.value }}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-2"><span>Address: </span></div>
+          <div class="col-6"><span> {{ task.address.value }}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-2"><span>Age:</span></div>
+          <div class="col-6"><span>{{ task.age.value }}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-2"><span>Email:</span></div>
+          <div class="col-6"><span>{{ task.email.value }}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-2"><span>Salary:</span></div>
+          <div class="col-6"><span>{{ task.salary.value }}</span></div>
+        </div>
+        <div class="row">
+          <div class="col-2"><span>Comment:</span></div>
+           <div class="col-6"><textarea id="myTextArea" [(ngModel)]="commentMessage" name="comment"></textarea></div>
+          <div> <button type="button" class="btn btn-primary btn-sm" (click)="sendComment();getcomments();">Add Comment</button>&nbsp;
+          <!-- <button type="button" class="btn btn-info" routerLink="/frontdesk/{{tasks.id}}"> Front Desk</button> -->
+          <div id="SectionName" style="display:none">
+          <body>
+            <div class="table-container" style="text-align: center;margin-left: 30px;">
+                <style type="text/css">
+                  label {
+                    width: 100px;
+                    display: inline-block;
+                  }
+                </style>
+                <header>
+                <h3 class="sub">Comment History</h3></header>
+                <p></p>
+                <hr>
+                <div class="container" >
+                  <table class="table table-striped">
+                    <thead>
+                      <tr class="table-primary">
+                        <th>Message</th>&nbsp;
+                        <th>Time</th>&nbsp;
+                      </tr>
+                    </thead>
+                    <tr class="table-info" *ngFor = "let comment of comments" >
+                      <td>{{ comment.message}}</td>&nbsp;
+                      <td>{{ comment.time | date:'medium'}}</td>&nbsp;
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </body>
+          </div>
+          </div>
+        </div> 
+      </div>
+      </div>
+  
+
+</div>
+</form>
+
